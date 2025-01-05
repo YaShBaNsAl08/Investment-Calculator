@@ -1,0 +1,26 @@
+@if (!res()) {
+    <p class="center">Please enter some value</p>
+}@else {
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Investment Value</th>
+            <th>Intrest (Year)</th>
+            <th>Total Intrest</th>
+            <th>Invested Capital</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of res(); track item.year) {
+            <tr>
+                <td>{{ item.year}}</td>
+                <td>{{ item.valueEndOfYear | currency}}</td>
+                <td>{{ item.interest | currency}}</td>
+                <td>{{ item.totalInterest | currency}}</td>
+                <td>{{ item.totalAmountInvested | currency}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
